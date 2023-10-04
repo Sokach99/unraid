@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<Container>
+  <TemplateURL>https://raw.githubusercontent.com/shuosiw/unraid/master/frpc.xml</TemplateURL>
+  <Beta>False</Beta>
+  <Category>Cloud: Network</Category>
+  <Name>adguardhome</Name>
+  <Description>
+    [b][u][span style='color: #E80000;']应用介绍[/span][/u][/b][br]
+    DNS服务器，解决dns污染，屏蔽广告使用。[br]
+    https://github.com/fatedier/frp[br][br]
+  </Description>
+  <Overview>
+    AdGuard Home是一款全网络的广告拦截和跟踪软件。 你设置好它后，它将覆盖你所有的家庭设备，你将不需要任何客户端软件。
+  </Overview>
+  <Support>https://github.com/AdguardTeam/AdGuardHome</Support>
+  <Registry>https://hub.docker.com/r/adguard/adguardhome</Registry>
+  <GitHub>https://github.com/AdguardTeam/AdGuardHome</GitHub>
+  <Repository>adguard/adguardhome:latest</Repository>
+  <Project>https://github.com/AdguardTeam/AdGuardHome</Project>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Network>bridge</Network>
+  <Shell>sh</Shell>
+    <Config Name="配置路径" Target="/opt/adguardhome/conf" Default="/mnt/user/appdata/adguardhome" 
+    Mode="rw" Description="配置文件路径" Type="Path" 
+    Display="always" Required="false" Mask="false">/mnt/user/appdata/adguardhome</Config>
+  <Config Name="dns tcp端口" Target="53" Default="" 
+    Mode="tcp" Description="dns tcp端口"  Type="Port" 
+    Display="always" Required="true" Mask="false">53</Config>
+      <Config Name="dns udp端口" Target="53" Default="" 
+    Mode="udp" Description="dns udp端口"  Type="Port" 
+    Display="always" Required="true" Mask="false">53</Config>
+      <Config Name="ad管理界面端口" Target="3000" Default="" 
+    Mode="tcp" Description="adguardhome 网页管理端口"  Type="Port" 
+    Display="always" Required="true" Mask="false">3000</Config>
+  <WebUI>http://[IP]:[PORT:3000]/</WebUI>
+  <Icon>https://github.com/shuosiw/unraid/raw/master/images/adguardhome.png</Icon>
+  <ExtraParams>--mount type=tmpfs,destination=/tmp</ExtraParams>
+  <PostArgs></PostArgs>
+  <CPUset></CPUset>
+  <DateInstalled></DateInstalled>
+  <DonateText></DonateText>
+  <DonateLink></DonateLink>
+  <DonateImg></DonateImg>
+</Container>
